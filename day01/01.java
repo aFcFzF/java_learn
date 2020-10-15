@@ -6,11 +6,9 @@
 class VariableTest {
     public static void main(String[] args) {
         int myNumber = 1;
-        byte myByte = -128;
+        Byte myByte = -128;
         short myShort = 9999;
         float f1 = 1.1f;
-
         System.out.println(f1);
-
     }
 }
