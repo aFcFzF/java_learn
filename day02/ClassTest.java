@@ -9,19 +9,25 @@
 
 public class ClassTest {
     public static void main(String[] args) {
-        Student p = new Student("jlp", "语文");
-        System.out.println(p.getDesc());
+        Person p = new Person("afcfzf");
+        Person p2 = new Person("afcfzf");
+
+        Student s = new Student("jlp", "语文");
+        Employee e = new Employee("jlp", "fe");
+
+        System.out.println(p.getName());
     }
 }
 
 class Person {
-    public String name;
+    String name = "1";
 
     Person(String name) {
-        this.name = name;
+        // this.name = name;
     }
 
     public String getName() {
+        name = "22";
         return name;
     }
 
@@ -32,6 +38,19 @@ class Student extends Person {
     String major;
 
     Student(String name, String ma) {
+        super(name);
+        major = ma;
+    }
+
+    public String getDesc() {
+        return name + "-" + major;
+    }
+}
+
+class Employee extends Person {
+    String major;
+
+    Employee(String name, String ma) {
         super(name);
         major = ma;
     }
