@@ -21,6 +21,10 @@ class Window extends Thread {
             System.out.println(name + ticket--);
         }
     }
+
+    public String sayName() {
+        return this.name;
+    }
 }
 
 class Test2 implements Runnable {
@@ -33,3 +37,16 @@ class Test2 implements Runnable {
     }
 }
 
+class Test3 extends Window {
+    private String name = "";
+
+    public Test3(String name) {
+        super(name);
+        this.name = name;
+    }
+
+    public Test3(String name) {
+        super(name);
+        this.name = name;
+    }
+}
