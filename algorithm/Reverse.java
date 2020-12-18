@@ -3,7 +3,7 @@
  * @author afcfzf(9301462@qq.com)
  */
 
-class Solution1 {
+class Sol2 {
     public int reverse(int x) {
         int num = 0;
         int max = (int)(Math.pow(2, 31) - 1) / 10;
@@ -11,6 +11,7 @@ class Solution1 {
 
         while (x / 10 != 0) {
             final int mod = x % 10;
+            num = num * 10 + mod;
 
             if (num > max || num == max && mod > 7) {
                 return 0;
@@ -20,7 +21,6 @@ class Solution1 {
                 return 0;
             }
 
-            num = num * 10 + mod;
             x /= 10;
         }
 
@@ -28,4 +28,3 @@ class Solution1 {
     }
 }
 
-new Solution1().reverse();
