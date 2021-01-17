@@ -1,4 +1,4 @@
-package com.example.mybatis;
+package mybatis_learn.src.test.java.com.example.mybatis;
 import com.example.dao.IUserDao;
 import com.example.domain.User;
 import org.apache.ibatis.io.Resources;
