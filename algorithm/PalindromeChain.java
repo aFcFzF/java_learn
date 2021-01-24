@@ -3,17 +3,17 @@
  * @author afcfzf(9301462@qq.com)
  */
 
-public class ListNode {
+
+public class PalindromeChain {
+    public class ListNode {
         int val;
         ListNode next;
         ListNode() {}
         ListNode(int val) { this.val = val; }
         ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-}
+    }
 
-
-public class isPalindromeChain {
-    public boolean isPalindrome(ListNode head) {
+    public boolean PalindromeChain(ListNode head) {
         int num = 0;
         int len = 0;
 
