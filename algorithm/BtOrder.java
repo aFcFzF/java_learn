@@ -41,12 +41,6 @@ public class BtOrder {
 
         for (LevelTreeNode item: q1) {
             int val = item.val;
-            int level = item.level;
-            // if (result[level] == null) {
-            //     result[level] = new ArrayList(val);
-            // } else {
-            //     result[level].add(val);
-            // }
             result[level] == null ? result[level] = new ArrayList(val) : result[level].add(val);
         }
 
