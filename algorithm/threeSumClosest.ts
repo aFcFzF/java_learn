@@ -1,5 +1,6 @@
 function threeSumClosest(nums: number[], target: number): number {
-    let result = Number.MAX_SAFE_INTEGER;
+    let span = Number.MAX_SAFE_INTEGER;
+    let result = target;
 
     nums.sort((a, b) => a - b);
 
@@ -17,24 +18,35 @@ function threeSumClosest(nums: number[], target: number): number {
 
     while (l1 < r - 1) {
         l2 = l1 + 1;
-        r--;
+        r = nums.length - 1;
 
         while (l2 < r) {
             const sum = nums[l1] + nums[l2] + nums[r];
 
             if (sum === target) {
                 return sum;
-            } else if (sum > target && abs(sum - target) < abs(result)) {
-                result = sum;
+            } else if (sum > target) {
+                if (abs(sum - target) < span) {
+                    span = abs(sum - target);
+                    result = sum;
+                };
+
                 r--;
-            } else if (sum < target && abs(target - sum) < abs(result)) {
-                result = sum;
+            } else if (sum < target) {
+                if (abs(target - sum) < span) {
+                    span = abs(target - sum);
+                    result = sum;
+                }
                 l2++;
+
+                while(nums[l1] === nums[l2]) {
+                    l2++;
+                }
             }
         }
 
         l1++;
     }
 
-    return target;
+    return result;
 };
