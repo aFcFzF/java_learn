@@ -14,6 +14,7 @@ public class StringLearn {
    * 6. 大小写
    * 7. 模板字符
    * 8. String对象
+   * 9. 截取
    */
   public static void main(String[] args) {
     // 拼接
@@ -52,5 +53,18 @@ public class StringLearn {
     // 大小写
     System.out.println("大写: " + "a".toUpperCase());
     System.out.println("小写: " + "A".toLowerCase());
+
+    // 截取
+    String str = "123456";
+    String before = str.substring(0, 1);
+    String end = str.substring(2);
+    System.out.println(before + "-2.5-" + end + Character.toUpperCase(end.charAt(0)));
+
+    String[] arr = new String[5];
+    arr[0] = "1";
+
+    // System.out.println(Character.toUpperCase(null));
+
+    Arrays.copyOf(null, 0, null);
   }
 }
