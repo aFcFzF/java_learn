@@ -1,6 +1,7 @@
 package study;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.LinkedList;
 
 /**
@@ -10,7 +11,7 @@ import java.util.LinkedList;
  * 3. 拼接
  * 4. 删除元素
  * 5. 排序：正序、倒序
- * 6. 拷贝
+ * 6. 深拷贝
  * 7. 联合类型
  */
 public class ArrayLearn {
@@ -33,9 +34,35 @@ public class ArrayLearn {
     arr2.addAll(arr);
 
     arr2.remove(2);
-    arr2.remove(0);
-    System.out.println("==arr result: " + Arrays.deepToString(arr2.toArray()));
+    // arr2.remove(0);
 
     // 排序
+    arr2.sort(new Comparator<Integer>() {
+      @Override
+      public int compare(Integer a, Integer b) {
+        return a - b;
+      }
+    });
+
+    // toArray 还需要转类型?
+    Integer[] arr3 = Arrays.copyOf(arr2.toArray(), arr2.size(), Integer[].class);
+
+    Arrays.sort(arr3, (a, b) -> b - a);
+    System.out.println("==arr result: " + Arrays.deepToString(arr2.toArray()));
+    System.out.println("==arr3 result: " + Arrays.toString(arr3));
+
+    Integer[] cArr = {1, 2, 3};
+    Integer[] dArr = Arrays.copyOf(cArr, cArr.length);
+    dArr[0] = 999;
+
+    System.out.println("==cArr result: " + Arrays.deepToString(cArr));
+    System.out.println("==dArr result: " + Arrays.deepToString(dArr));
+
+    ArrayLearn ins = new ArrayLearn();
+    ins.union();
+  }
+
+  private void union() {
+
   }
 }
