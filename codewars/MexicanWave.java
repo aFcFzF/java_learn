@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.stream.IntStream;
 import java.util.LinkedList;
 
 public class MexicanWave {
@@ -22,7 +23,24 @@ public class MexicanWave {
   }
 
   public static void main(String[] args) {
-    String[] res = MexicanWave.wave("two words");
-    System.out.println(Arrays.toString(res));
+    String txt = "two words";
+    String[] res = MexicanWave.wave(txt);
+    String[] res2 = MexicanWave.waveStream(txt);
+    System.out.println("method1: " + Arrays.toString(res));
+    System.out.println("method2: " + Arrays.toString(res2));
+  }
+
+  public static String[] waveStream(String str) {
+    return IntStream.range(0, str.length())
+        .mapToObj(idx -> {
+          char ch = str.charAt(idx);
+          if (ch == ' ') {
+            return null;
+          }
+
+          return str.substring(0, idx) + Character.toUpperCase(ch) + str.substring(idx + 1);
+        })
+        .filter(Objects::nonNull)
+        .toArray(String[]::new);
   }
 }
