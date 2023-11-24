@@ -1,10 +1,8 @@
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Objects;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 public class MultiplesOfThreeOrFive {
   private int[] sum(int count) {
@@ -30,8 +28,6 @@ public class MultiplesOfThreeOrFive {
     // Integer[][] res = Arrays.copyOf(map.values().toArray(), map.size(),
     // Integer[][].class);
     int[][] res = map.values().toArray(new int[0][]);
-    // System.out.println(Arrays.deepToString(res));
-
     return map.get(count);
   }
 
