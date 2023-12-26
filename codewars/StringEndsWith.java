@@ -1,6 +1,6 @@
 /**
- * @file StringAndsWith.java
- * @author markJia(markjia@tencent.com)
+ * @file StringEndsWith.java
+ * @author afcfzf(9301462@qq.com)
  */
 
 public class StringEndsWith {

@@ -1,3 +1,8 @@
+/**
+ * @file SquareDigit.java
+ * @author afcfzf(9301462@qq.com)
+ */
+
 public class SquareDigit {
   public static void main(String[] args) {
     SquareDigit ins = new SquareDigit();

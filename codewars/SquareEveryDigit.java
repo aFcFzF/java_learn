@@ -1,6 +1,6 @@
 /**
  * @file SquareEveryDigit.java
- * @author markJia(markjia@tencent.com)
+ * @author afcfzf(9301462@qq.com)
  */
 
 public class SquareEveryDigit {

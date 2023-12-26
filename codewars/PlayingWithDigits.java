@@ -1,3 +1,8 @@
+/**
+ * @file PlayingWithDigits.java
+ * @author afcfzf(9301462@qq.com)
+ */
+
 import java.util.Arrays;
 
 public class PlayingWithDigits {
