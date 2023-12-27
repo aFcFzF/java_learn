@@ -6,14 +6,25 @@
 class DivisibleInts {
   public static void main(String[] args) {
     DivisibleInts ins = new DivisibleInts();
-    ins.getCount(23);
+    System.out.println("结果：" + ins.getCount(1111111111));
   }
 
   private int getCount(int n) {
-    if (n < 10) {
-      return 0;
+    String intStr = Integer.toString(n);
+    int count = 0;
+    for (int i = 0; i < intStr.length(); i++) {
+      for (int j = i; j < intStr.length(); j++) {
+        String subStr = intStr.substring(i, j + 1);
+
+        int num = Integer.parseInt(String.join("", subStr));
+
+        if (n != num && num != 0 && n % num == 0) {
+          count += 1;
+        }
+      }
     }
-
-
+    return count;
   }
 }
+
+
