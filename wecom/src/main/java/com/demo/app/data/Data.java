@@ -3,7 +3,7 @@
  * @author markJia(markjia@tencent.com)
  */
 
-package com.wecom.app.data;
+package com.demo.app.data;
 
 public class Data {
   private String name;
