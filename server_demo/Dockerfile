@@ -1,4 +1,4 @@
-from centos:centos7.9.2009
+from swr.cn-north-4.myhuaweicloud.com/mark-dev/java_docker_base:v0.0.1
 maintainer afcfzf <9301462@qq.com>
 label version="1.0"
 label description="docker for java server"
