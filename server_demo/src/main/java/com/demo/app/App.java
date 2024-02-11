@@ -4,7 +4,7 @@
  * @author markJia(markjia@tencent.com)
  */
 
-package com.demo.app;
+package server_demo.src.main.java.com.demo.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

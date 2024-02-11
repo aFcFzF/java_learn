@@ -3,7 +3,7 @@
  * @author markJia(markjia@tencent.com)
  */
 
-package com.demo.app.data;
+package server_demo.src.main.java.com.demo.app.data;
 
 public class Data {
   private String name;
