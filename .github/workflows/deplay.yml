@@ -63,6 +63,7 @@ jobs:
 
           #Bash commands may be placed line by line here
           script: |
+            echo 结果:   ${{ secrets.SWR_DOCKER_PATH }}:"$GIT_HASH_SHORT"
             docker pull ${{ secrets.SWR_DOCKER_PATH }}:"$GIT_HASH_SHORT"
             docker stop server-demo-container
             docker rm server-demo-container
