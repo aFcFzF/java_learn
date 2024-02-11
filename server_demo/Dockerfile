@@ -8,3 +8,5 @@ run mkdir -p /work/proj/demo
 workdir /work/proj/demo
 
 copy ./target/demo-1.0.jar ./
+
+CMD ["java -jar ./demo-1.0.jar"]

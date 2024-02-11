@@ -52,3 +52,20 @@ jobs:
 
       - name: Docker image push
         run: docker push ${{ secrets.SWR_DOCKER_PATH }}:"$GIT_HASH_SHORT"
+
+      #Job starts here
+      - name: executing remote ssh commands
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SWR_SSH_HOST }}
+          username: ${{ secrets.SWR_SSH_USER_NAME }}
+          password: ${{ secrets.SWR_SSH_PASSWORD }}
+
+          #Bash commands may be placed line by line here
+          script: |
+            docker pull ${{ secrets.SWR_DOCKER_PATH }}:"$GIT_HASH_SHORT"
+            docker stop server-demo-container
+            docker rm server-demo-container
+            docker run --name=server-demo-container --restart=always -it ${{ secrets.SWR_DOCKER_PATH }}:"$GIT_HASH_SHORT"
+
+
