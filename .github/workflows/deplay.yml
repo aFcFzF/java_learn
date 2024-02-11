@@ -25,17 +25,17 @@ jobs:
         run: mvn --batch-mode --update-snapshots verify
 
       # --- node below ---
-      - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
+      # - uses: actions/checkout@v3
+      # - name: Use Node.js ${{ matrix.node-version }}
+      #   uses: actions/setup-node@v1
+      #   with:
+      #     node-version: ${{ matrix.node-version }}
 
-      - name: Install Dependencies
-        run: npm i -g yarn && yarn
+      # - name: Install Dependencies
+      #   run: npm i -g yarn && yarn
 
-      - name: Build
-        run: yarn build
+      # - name: Build
+      #   run: yarn build
 
       - name: Docker login
         uses: docker/login-action@v1
