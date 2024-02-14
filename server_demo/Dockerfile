@@ -8,5 +8,6 @@ run mkdir -p /work/proj/demo
 workdir /work/proj/demo
 
 copy ./target/demo-1.0.jar ./
+copy ./release/start.sh ./
 
-ENTRYPOINT ["java", "-jar", "demo-1.0.jar"]
+ENTRYPOINT ["./start.sh"]
