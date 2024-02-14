@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 
 DOCKER_NAME=swr.cn-north-4.myhuaweicloud.com/mark-dev/server-demo;
 DOCKER_VERSION="$(git rev-parse --short HEAD)";

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 
 tar -zxf ./TencentKona-17.0.10.b1-jdk_linux-x86_64.tar.gz
 
