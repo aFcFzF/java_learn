@@ -1,4 +1,7 @@
 #!/bin/bash
-cat /etc/profile
+cat ~/.bashrc
+
+echo "--------"
 whoami
+echo "--------"
 # java -jar ./demo-1.0.jar || true;
