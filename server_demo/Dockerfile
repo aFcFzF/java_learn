@@ -1,4 +1,4 @@
-from swr.cn-north-4.myhuaweicloud.com/mark-dev/java_docker_base:v0.0.1
+from swr.cn-north-4.myhuaweicloud.com/mark-dev/java_docker_base:v0.0.2
 maintainer afcfzf <9301462@qq.com>
 label version="1.0"
 label description="docker for java server"
@@ -9,6 +9,8 @@ workdir /work/proj/demo
 
 copy ./target/demo-1.0.jar ./
 copy ./release/start.sh ./
+
+# USER root
 
 RUN ["chmod", "+x", "./start.sh"]
 ENTRYPOINT ["./start.sh"]
