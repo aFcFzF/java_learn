@@ -10,7 +10,7 @@ workdir /work/proj/demo
 copy ./target/demo-1.0.jar ./
 copy ./release/start.sh ./
 
-# USER root
+USER root
 
 RUN ["chmod", "+x", "./start.sh"]
 ENTRYPOINT ["./start.sh"]
