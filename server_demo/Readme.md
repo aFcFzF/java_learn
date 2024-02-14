@@ -7,3 +7,8 @@ docker push swr.cn-north-4.myhuaweicloud.com/mark-dev/swr-demo-2048:latest
 ``` bash
 docker rmi -f $(docker images 'swr.cn-north-4.myhuaweicloud.com/mark-dev/server-demo' -a -q)
 ```
+
+## 环境变量
+``` bash
+-D SPRING_PROFILES_ACTIVE
+```
