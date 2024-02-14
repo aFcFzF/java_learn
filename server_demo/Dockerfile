@@ -13,4 +13,4 @@ copy ./release/start.sh ./
 USER root
 
 RUN ["chmod", "+x", "./start.sh"]
-ENTRYPOINT ["./start.sh"]
+CMD ["sh", "./start.sh"]
