@@ -9,4 +9,4 @@ workdir /work/proj/demo
 
 copy ./target/demo-1.0.jar ./
 
-CMD ["java -jar ./demo-1.0.jar"]
+CMD ["java -jar /work/proj/demo/demo-1.0.jar"]
