@@ -14,15 +14,15 @@ jobs:
     #   matrix:
     #     node-version: [16.13.x]
     steps:
-      - uses: actions/checkout@v4
-      - name: Set up JDK 11
-        uses: actions/setup-java@v3
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-          cache: maven
-      - name: Build with Maven
-        run: mvn --batch-mode --update-snapshots verify
+      # - uses: actions/checkout@v4
+      # - name: Set up JDK 11
+      #   uses: actions/setup-java@v3
+      #   with:
+      #     java-version: '17'
+      #     distribution: 'temurin'
+      #     cache: maven
+      # - name: Build with Maven
+      #   run: mvn --batch-mode --update-snapshots verify
 
       # --- node below ---
       # - uses: actions/checkout@v3
@@ -67,7 +67,7 @@ jobs:
           #Bash commands may be placed line by line here
           script: |
             docker login -u ${{ secrets.SWR_DOCKERHUB_USERNAME }} -p ${{ secrets.SWR_DOCKERHUB_PASSWORD }} swr.cn-north-4.myhuaweicloud.com
-            echo 结果:   ${{ secrets.SWR_DOCKER_PATH }}:"$GIT_HASH_SHORT"
+            echo 结果:   ${{ secrets.SWR_DOCKER_PATH }}:"${{ env.GIT_HASH_SHORT }}"
             docker pull ${{ secrets.SWR_DOCKER_PATH }}:"$GIT_HASH_SHORT"
             docker ps -q --filter "name=server-demo-container" | xargs -r docker stop
             docker ps -aq --filter "name=server-demo-container" | xargs -r docker rm
