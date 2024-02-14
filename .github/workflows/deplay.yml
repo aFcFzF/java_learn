@@ -37,21 +37,24 @@ jobs:
       # - name: Build
       #   run: yarn build
 
-      - name: Docker login
-        uses: docker/login-action@v1
-        with:
-          registry: swr.cn-north-4.myhuaweicloud.com
-          username: ${{ secrets.SWR_DOCKERHUB_USERNAME }}
-          password: ${{ secrets.SWR_DOCKERHUB_PASSWORD }}
+      # - name: Docker login
+      #   uses: docker/login-action@v1
+      #   with:
+      #     registry: swr.cn-north-4.myhuaweicloud.com
+      #     username: ${{ secrets.SWR_DOCKERHUB_USERNAME }}
+      #     password: ${{ secrets.SWR_DOCKERHUB_PASSWORD }}
+
+      # - name: Set Bash Env
+      #   run: echo "GIT_HASH_SHORT=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
 
       - name: Set Bash Env
-        run: echo "GIT_HASH_SHORT=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+        run: echo "GIT_HASH_SHORT=533a05d" >> $GITHUB_ENV
 
-      - name: Build the Docker image
-        run: docker build -t ${{ secrets.SWR_DOCKER_PATH }}:"$GIT_HASH_SHORT" .
+      # - name: Build the Docker image
+      #   run: docker build -t ${{ secrets.SWR_DOCKER_PATH }}:"$GIT_HASH_SHORT" .
 
-      - name: Docker image push
-        run: docker push ${{ secrets.SWR_DOCKER_PATH }}:"$GIT_HASH_SHORT"
+      # - name: Docker image push
+      #   run: docker push ${{ secrets.SWR_DOCKER_PATH }}:"$GIT_HASH_SHORT"
 
       #Job starts here
       - name: executing remote ssh commands
