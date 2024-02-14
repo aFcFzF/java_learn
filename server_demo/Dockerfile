@@ -14,4 +14,4 @@ RUN ["chmod", "+x", "./start.sh"]
 
 USER root
 
-ENTRYPOINT ["sh", "./start.sh"]
+ENTRYPOINT ["./start.sh"]

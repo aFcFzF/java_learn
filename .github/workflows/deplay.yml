@@ -71,6 +71,6 @@ jobs:
             docker pull ${{ secrets.SWR_DOCKER_PATH }}:${{ env.GIT_HASH_SHORT }}
             docker ps -q --filter "name=server-demo-container" | xargs -r docker stop
             docker ps -aq --filter "name=server-demo-container" | xargs -r docker rm
-            docker run -d --name=server-demo-container --restart=always ${{ secrets.SWR_DOCKER_PATH }}:${{ env.GIT_HASH_SHORT }}
+            docker run -d -p 8080:8080 --name=server-demo-container --restart=always ${{ secrets.SWR_DOCKER_PATH }}:${{ env.GIT_HASH_SHORT }}
 
 
