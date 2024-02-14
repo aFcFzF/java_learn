@@ -1,4 +1,4 @@
-package server_demo.src.test.java.com.wecom.app;
+package com.wecom.app;
 
 import static org.junit.Assert.assertTrue;
 
