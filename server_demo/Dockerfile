@@ -1,4 +1,4 @@
-from swr.cn-north-4.myhuaweicloud.com/mark-dev/java_docker_base:v0.0.2
+from swr.cn-north-4.myhuaweicloud.com/mark-dev/java_docker_base:v0.0.3
 maintainer afcfzf <9301462@qq.com>
 label version="1.0"
 label description="docker for java server"
