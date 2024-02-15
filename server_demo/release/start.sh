@@ -2,9 +2,4 @@
 
 cat ~/.bashrc
 
-echo "--------"
-whoami
-echo "--------"
-
-source ~/.bashrc
-java -jar ./demo-1.0.jar || true;
+java -jar -Dspring.profiles.active=prod ./demo-1.0.jar || true
