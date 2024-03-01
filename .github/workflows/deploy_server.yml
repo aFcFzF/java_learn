@@ -1,4 +1,4 @@
-name: build server
+name: deploy-server
 on: workflow_dispatch
 jobs:
   build:
@@ -47,10 +47,10 @@ jobs:
       #   run: echo "GIT_HASH_SHORT=533a05d" >> $GITHUB_ENV
 
       - name: Build the Docker image
-        run: docker build -t ${{ secrets.SWR_DOCKER_PATH }}:"$GIT_HASH_SHORT" .
+        run: docker build -t ${{ secrets.SWR_DOCKER_SERVER_PATH }}:"$GIT_HASH_SHORT" .
 
       - name: Docker image push
-        run: docker push ${{ secrets.SWR_DOCKER_PATH }}:"$GIT_HASH_SHORT"
+        run: docker push ${{ secrets.SWR_DOCKER_SERVER_PATH }}:"$GIT_HASH_SHORT"
 
       #Job starts here
       - name: executing remote ssh commands
@@ -63,10 +63,10 @@ jobs:
           #Bash commands may be placed line by line here
           script: |
             docker login -u ${{ secrets.SWR_DOCKERHUB_USERNAME }} -p ${{ secrets.SWR_DOCKERHUB_PASSWORD }} swr.cn-north-4.myhuaweicloud.com
-            echo 结果:   ${{ secrets.SWR_DOCKER_PATH }}:${{ env.GIT_HASH_SHORT }}
-            docker pull ${{ secrets.SWR_DOCKER_PATH }}:${{ env.GIT_HASH_SHORT }}
+            echo 结果:   ${{ secrets.SWR_DOCKER_SERVER_PATH }}:${{ env.GIT_HASH_SHORT }}
+            docker pull ${{ secrets.SWR_DOCKER_SERVER_PATH }}:${{ env.GIT_HASH_SHORT }}
             docker ps -q --filter "name=server-demo-container" | xargs -r docker stop
             docker ps -aq --filter "name=server-demo-container" | xargs -r docker rm -f
-            docker run -d -p 8080:8080 --name=server-demo-container --restart=always ${{ secrets.SWR_DOCKER_PATH }}:${{ env.GIT_HASH_SHORT }}
+            docker run -d -p 8080:8080 --name=server-demo-container --restart=always ${{ secrets.SWR_DOCKER_SERVER_PATH }}:${{ env.GIT_HASH_SHORT }}
 
 
