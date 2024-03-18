@@ -4,6 +4,8 @@ label version="1.0"
 label description="docker for redis"
 
 RUN mkdir -p /data/software/
+RUN mkdir -p /etc/redis/
+
 WORKDIR /data/software/
 
 COPY ./assets/* ./
