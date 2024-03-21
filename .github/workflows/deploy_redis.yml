@@ -42,4 +42,6 @@ jobs:
             docker ps -q --filter "name=${{ env.DOCKER_CONTAINER_NAME }}" | xargs -r docker stop
             docker ps -aq --filter "name=${{ env.DOCKER_CONTAINER_NAME }}" | xargs -r docker rm -f
             docker run -p 6379:6379 --name=${{ env.DOCKER_CONTAINER_NAME }} --restart=always  \
-            -d ${{ secrets.SWR_DOCKER_REDIS_PATH }}:${{ env.GIT_HASH_SHORT }} redis-server --appendonly yes
+            -v /root/work/proj/java-learn/docker-config/redis/redis.conf:/data/config/redis/redis.conf \
+            -v /root/work/proj/java-learn/docker-config/redis/data:/data/config/redis/data \
+            -d ${{ secrets.SWR_DOCKER_REDIS_PATH }}:${{ env.GIT_HASH_SHORT }} redis-server /data/config/redis/redis.conf --appendonly yes
