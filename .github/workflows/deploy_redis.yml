@@ -20,6 +20,9 @@ jobs:
           echo "GIT_HASH_SHORT=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
           echo "DOCKER_CONTAINER_NAME=server-demo-redis >> $GITHUB_ENV"
 
+          # show output
+          echo "output is ${{ env.GIT_HASH_SHORT }}"
+
       - name: Build the Docker image
         run: docker build -t ${{ secrets.SWR_DOCKER_REDIS_PATH }}:"$GIT_HASH_SHORT" .
 
