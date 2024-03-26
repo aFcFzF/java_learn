@@ -5,6 +5,8 @@ label description="docker for redis"
 
 RUN mkdir -p /data/software/
 
+RUN apk update --no-check-certificate && apk add --no-check-certificate bash curl
+
 RUN ["chmod", "777", "/data/software/"]
 
 WORKDIR /data/software/
