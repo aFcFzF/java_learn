@@ -8,8 +8,9 @@ java学习
 ``` bash
 mysql -u root;
 use mysql;
-UPDATE mysql.user SET password = PASSWORD('you pass') WHERE user = 'root';
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'password' PASSWORD EXPIRE NEVER;
 # 允许外网登录
-GRANT ALL PRIVILEGES ON *.* TO root@% WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
+# skip-name-resolve
 FLUSH PRIVILEGES;
 ```
