@@ -7,7 +7,14 @@ RUN mkdir -p /data/software/
 
 RUN apk update --no-check-certificate && apk add --no-check-certificate bash curl
 
-RUN ["chmod", "777", "/data/software/"]
+RUN apk add --no-check-certificate --no-cache mysql mysql-client openrc \
+&& rc-update add mariadb default \
+&& openrc && touch /run/openrc/softlevel
 
 WORKDIR /data/software/
 
+COPY ./assets/* ./
+
+RUN ["chmod", "777", "-R",  "/data/software/"]
+
+CMD ["sh", "-c", "./init.sh -d"]
