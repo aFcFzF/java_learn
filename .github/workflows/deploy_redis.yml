@@ -45,7 +45,8 @@ jobs:
             docker ps -aq --filter "name=${{ env.DOCKER_CONTAINER_NAME }}" | xargs -r docker rm -f
             docker run -p 6379:6379 -p 8806:3306 --name=${{ env.DOCKER_CONTAINER_NAME }} --restart=always  \
             -v /root/work/proj/java-learn/docker-config/redis:/data/config/redis \
-            -v /root/work/proj/java-learn/docker-config/mysql:/data/config/mysql \
+            -v /root/work/proj/java-learn/docker-config/mysql/db:/data/config/mysql/db \
+            -v /root/work/proj/java-learn/docker-config/mysql/log:/data/config/mysql/log \
             -v /root/work/proj/java-learn/docker-config/mysql/cgroup:/sys/fs/cgroup \
             -v /root/work/proj/java-learn/docker-config/mysql/my.cnf:/etc/my.cnf \
             -d ${{ secrets.SWR_DOCKER_REDIS_PATH }}:${{ env.GIT_HASH_SHORT }} redis-server /data/config/redis/redis.conf --appendonly yes
