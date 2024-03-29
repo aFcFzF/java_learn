@@ -10,7 +10,7 @@ mysql -u root;
 use mysql;
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'password' PASSWORD EXPIRE NEVER;
 # 允许外网登录
-GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'password';
 # skip-name-resolve
 FLUSH PRIVILEGES;
 ```
