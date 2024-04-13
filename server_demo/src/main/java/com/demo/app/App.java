@@ -19,6 +19,9 @@ public class App {
   @Value("${spring.application.name}")
   private String name;
 
+  @Value("${jasypt.encryptor.password}")
+  private String encryptKey;
+
   @RequestMapping("/")
   String home() {
     return "hello world! \n" + "env: " + name;

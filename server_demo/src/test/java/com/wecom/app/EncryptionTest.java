@@ -9,8 +9,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.demo.app.App;
-
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @SpringBootApplication
@@ -18,8 +16,6 @@ public class EncryptionTest {
   @Value("${spring.application.name}")
   private String applicationName;
 
-  @Value("${classpath}")
-  private String classPath;
 
   private String getClassPath() throws IOException {
     ClassPathResource resource = new ClassPathResource("application.properties");
