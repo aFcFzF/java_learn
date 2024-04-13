@@ -12,3 +12,11 @@ docker rmi -f $(docker images 'swr.cn-north-4.myhuaweicloud.com/mark-dev/server-
 ``` bash
 -D SPRING_PROFILES_ACTIVE
 ```
+
+## vscode测试
+``` json
+"java.debug.settings.vmArgs": "-Djasypt.encryptor.password=",
+"java.test.config": {
+  "vmArgs": ["-Djasypt.encryptor.password="]
+}
+```
