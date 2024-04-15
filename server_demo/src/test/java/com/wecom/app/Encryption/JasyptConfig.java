@@ -15,5 +15,3 @@ public class JasyptConfig {
 
   private String password;
 }
-
-
