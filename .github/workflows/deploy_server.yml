@@ -18,9 +18,8 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - run: touch ./src/main/resources/secret.properties
-      - run: echo "${{ secrets.JASYPT_SECRET }}" > ./src/main/resources/secret.properties
-      - run: cat ./src/main/resources/secret.properties
+      - run: touch ./src/main/resources/secrets.properties
+      - run: echo "${{ secrets.JASYPT_SECRET }}" > ./src/main/resources/secrets.properties
 
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots verify
