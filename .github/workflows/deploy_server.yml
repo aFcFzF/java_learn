@@ -19,7 +19,7 @@ jobs:
           cache: maven
 
       - run: touch ./src/main/resources/secrets.properties
-      - run: echo "${{ secrets.JASYPT_SECRET }}" > ./src/main/resources/secrets.properties
+      - run: echo "jasypt.encryptor.password=${{ secrets.JASYPT_SECRET }}" > ./src/main/resources/secrets.properties
       - run: ls ./src/main/resources/
 
       - name: Build with Maven
