@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.demo.app.config.decorator.ApiResp;
 import com.demo.app.entity.UserEntity;
 import com.demo.app.mapper.UserMapper;
 
@@ -22,9 +23,11 @@ public class User {
   private UserMapper userMapper;
 
   @PostMapping(value = "/list")
-  public void testSelect() {
+  @ApiResp
+  public List<UserEntity> testSelect() {
     System.out.println(("----- selectAll method test ------"));
     List<UserEntity> userList = userMapper.selectList(null);
-    // userList.forEach(System.out::println);
+    userList.forEach(System.out::println);
+    return userList;
   }
 }
