@@ -29,7 +29,7 @@ public class App {
 
   @RequestMapping("/")
   String home() {
-    return "hello world! \n" + "env: " + name + "-----" + dbUrl;
+    return "hello world! \n" + "env: " + name;
   }
 
   public static void main(String[] args) {

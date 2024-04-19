@@ -5,19 +5,17 @@
 
 package com.wecom.app;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.List;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
-
+import com.demo.app.App;
 import com.demo.app.entity.UserEntity;
 import com.demo.app.mapper.UserMapper;
 
-// @SpringBootTest
-// @RunWith(SpringRunner.class)
-public class Sql {
+@SpringBootTest(classes = App.class)
+public class SqlTest {
   @Autowired
   private UserMapper userMapper;
 
@@ -25,7 +23,8 @@ public class Sql {
   public void testSelect() {
     System.out.println(("----- selectAll method test ------"));
     List<UserEntity> userList = userMapper.selectList(null);
-    // assertEquals(5, userList.size());
-    // userList.forEach(System.out::println);
+    System.out.println("????   " + userList.toArray().length);
+    assertEquals(2, userList.size());
+    userList.forEach(System.out::println);
   }
 }

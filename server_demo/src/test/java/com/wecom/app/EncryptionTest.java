@@ -1,25 +1,21 @@
 package com.wecom.app;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.io.IOException;
-import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.test.context.junit4.SpringRunner;
 
+import com.demo.app.App;
 import com.wecom.app.Encryption.JasyptConfig;
-
 import org.jasypt.encryption.StringEncryptor;
 import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;
+import org.junit.jupiter.api.Test;
 
-@SpringBootApplication
-@RunWith(SpringRunner.class)
-@SpringBootTest()
-public class Encryption1 {
+@SpringBootTest(classes = { App.class, JasyptConfig.class })
+public class EncryptionTest {
   @Value("${spring.application.name}")
   private String applicationName;
 
