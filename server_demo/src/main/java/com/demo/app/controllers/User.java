@@ -25,6 +25,6 @@ public class User {
   public void testSelect() {
     System.out.println(("----- selectAll method test ------"));
     List<UserEntity> userList = userMapper.selectList(null);
-    userList.forEach(System.out::println);
+    // userList.forEach(System.out::println);
   }
 }

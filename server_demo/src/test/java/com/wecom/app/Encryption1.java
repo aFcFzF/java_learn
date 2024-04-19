@@ -12,13 +12,14 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.wecom.app.Encryption.JasyptConfig;
+
 import org.jasypt.encryption.StringEncryptor;
 import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;
 
 @SpringBootApplication
 @RunWith(SpringRunner.class)
 @SpringBootTest()
-public class EncryptionTest {
+public class Encryption1 {
   @Value("${spring.application.name}")
   private String applicationName;
 

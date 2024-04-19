@@ -26,6 +26,6 @@ public class Sql {
     System.out.println(("----- selectAll method test ------"));
     List<UserEntity> userList = userMapper.selectList(null);
     // assertEquals(5, userList.size());
-    userList.forEach(System.out::println);
+    // userList.forEach(System.out::println);
   }
 }
