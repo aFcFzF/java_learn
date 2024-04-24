@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.demo.app.config.decorator.ApiResp;
 import com.demo.app.entity.UserEntity;
@@ -29,6 +28,7 @@ public class User {
     System.out.println(("----- selectAll method test ------"));
     List<UserEntity> userList = userMapper.selectList(null);
     userList.forEach(System.out::println);
-    return userList;
+    throw new Error("测试0011");
+    // return userList;
   }
 }
