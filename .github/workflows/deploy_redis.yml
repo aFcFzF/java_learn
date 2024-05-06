@@ -39,7 +39,6 @@ jobs:
           #Bash commands may be placed line by line here
           script: |
             docker login -u ${{ secrets.SWR_DOCKERHUB_USERNAME }} -p ${{ secrets.SWR_DOCKERHUB_PASSWORD }} swr.cn-north-4.myhuaweicloud.com
-            echo 结果:   ${{ secrets.SWR_DOCKER_REDIS_PATH }}:${{ env.GIT_HASH_SHORT }}
             docker pull ${{ secrets.SWR_DOCKER_REDIS_PATH }}:${{ env.GIT_HASH_SHORT }}
             docker ps -q --filter "name=${{ env.DOCKER_CONTAINER_NAME }}" | xargs -r docker stop
             docker ps -aq --filter "name=${{ env.DOCKER_CONTAINER_NAME }}" | xargs -r docker rm -f

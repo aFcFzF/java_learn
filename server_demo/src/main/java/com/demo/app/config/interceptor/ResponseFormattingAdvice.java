@@ -4,8 +4,6 @@
  */
 
 package com.demo.app.config.interceptor;
-
-import org.springframework.beans.BeansException;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -15,9 +13,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
-
 import com.demo.app.config.decorator.ApiResp;
-
 import io.micrometer.common.lang.NonNull;
 import lombok.Data;
 
@@ -59,9 +55,8 @@ public class ResponseFormattingAdvice implements ResponseBodyAdvice<Object> {
 
   @ExceptionHandler(Exception.class)
   public final ApiResult exceptionHandler(Exception ex, WebRequest request) {
-    if (ex instanceof BeansException) {
-      return new ApiResult(ex.getMessage());
-    }
-    return new ApiResult(500, ex.getMessage());
+    int code = 500;
+    String errMsg = ex.getMessage();
+    return new ApiResult(code, errMsg);
   }
 }
