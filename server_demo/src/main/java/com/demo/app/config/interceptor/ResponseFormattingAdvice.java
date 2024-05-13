@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 import com.demo.app.config.decorator.ApiResp;
+import com.demo.app.modules.common.util.HttpException;
+
 import io.micrometer.common.lang.NonNull;
 import lombok.Data;
 
@@ -55,6 +57,10 @@ public class ResponseFormattingAdvice implements ResponseBodyAdvice<Object> {
 
   @ExceptionHandler(Exception.class)
   public final ApiResult exceptionHandler(Exception ex, WebRequest request) {
+    if (ex instanceof HttpException) {
+      HttpException httpEx = (HttpException) ex;
+      return new ApiResult(httpEx.getCode(), httpEx.getMsg());
+    }
     int code = 500;
     String errMsg = ex.getMessage();
     return new ApiResult(code, errMsg);
