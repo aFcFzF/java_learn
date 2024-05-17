@@ -88,6 +88,11 @@
       <artifactId>sa-token-spring-boot3-starter</artifactId>
       <version>1.38.0</version>
     </dependency>
+    <dependency>
+      <groupId>com.baomidou</groupId>
+      <artifactId>mybatis-plus-generator</artifactId>
+      <version>3.5.6</version>
+  </dependency>
   </dependencies>
   <build>
     <plugins>
