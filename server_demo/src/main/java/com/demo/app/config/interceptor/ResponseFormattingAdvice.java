@@ -15,6 +15,7 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 import com.demo.app.config.decorator.ApiResp;
 import com.demo.app.modules.common.util.HttpException;
+import com.fasterxml.jackson.annotation.JsonRawValue;
 
 import io.micrometer.common.lang.NonNull;
 import lombok.Data;
@@ -33,6 +34,10 @@ class ApiResult {
   }
 
   public ApiResult(Object data) {
+    this.data = data;
+  }
+
+  public ApiResult(String data) {
     this.data = data;
   }
 }

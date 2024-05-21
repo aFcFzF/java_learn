@@ -85,7 +85,7 @@ public class CodeGenerator {
         decodeDict.get("spring.datasource.username"),
         decodeDict.get("spring.datasource.password"))
         .globalConfig(builder -> {
-          builder.author("austin") // 设置作者
+          builder.author("afcfzf") // 设置作者
               .enableSwagger() // 开启 swagger 模式 默认值:false
               .disableOpenDir() // 禁止打开输出目录 默认值:true
               .commentDate("yyyy-MM-dd") // 注释日期
