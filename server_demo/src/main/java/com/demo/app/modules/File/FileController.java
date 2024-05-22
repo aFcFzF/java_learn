@@ -44,6 +44,7 @@ public class FileController {
     // String filePath = fileUploadDir + File.separator +
     // "bigFiles/bigfile_postman_for_macOS_arm64.zip";
     String filePath = fileUploadDir + File.separator + "bigFiles" + File.separator + "服务商账单列表-2024年Q1-BEST.xlsx";
+    // String filePath = fileUploadDir + File.separator + "bigFiles" + File.separator + "test.txt";
     final File file = new File(filePath);
 
     if (!file.exists()) {
@@ -58,9 +59,9 @@ public class FileController {
     headers.set(HttpHeaders.LAST_MODIFIED, String.valueOf(file.lastModified()));
     headers.set(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + URLEncoder.encode(file.getName(), "UTF-8"));
     headers.set(HttpHeaders.CONTENT_LENGTH, String.valueOf(file.length()));
-    headers.set("x-file-md5", "0011");
+    headers.set("x-file-hash", "0011");
     headers.set(HttpHeaders.ACCESS_CONTROL_EXPOSE_HEADERS,
-        HttpHeaders.CONTENT_DISPOSITION + ", " + HttpHeaders.CONTENT_RANGE + ", " + "x-file-md5");
+        HttpHeaders.CONTENT_DISPOSITION + ", " + HttpHeaders.CONTENT_RANGE + ", " + "x-file-hash");
 
     return ResponseEntity
         .ok()
