@@ -23,8 +23,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.jayway.jsonpath.InvalidPathException;
-
 @Controller
 @RequestMapping("/api/download")
 public class FileController {
@@ -32,23 +30,23 @@ public class FileController {
   @Value("${file.upload.dir}")
   private String fileUploadDir;
 
-  @CrossOrigin(origins = "http://127.0.0.1:8787")
+  @CrossOrigin(origins = "*")
   @PostMapping("/bigFile")
   public ResponseEntity<Resource> bigFileTest(@RequestHeader("Range") String range) throws IOException, Exception {
     if (range.equals(null)) {
       throw new Exception("参数错误, 分片下载必须指定headers.Range");
     }
 
-    // throw new Exception("未知错误");
-
     // String filePath = fileUploadDir + File.separator +
-    // "bigFiles/bigfile_postman_for_macOS_arm64.zip";
-    String filePath = fileUploadDir + File.separator + "bigFiles" + File.separator + "服务商账单列表-2024年Q1-BEST.xlsx";
-    // String filePath = fileUploadDir + File.separator + "bigFiles" + File.separator + "test.txt";
+    // String filePath = fileUploadDir + File.separator + "bigFiles" +
+    // File.separator + "bigfile_postman_for_macOS_arm64.zip";
+    String filePath = fileUploadDir + File.separator + "bigFiles" + File.separator + "服务商全部账单明细-2022年Q2-BEST.zip";
+    // String filePath = fileUploadDir + File.separator + "bigFiles" +
+    // File.separator + "test.txt";
     final File file = new File(filePath);
 
     if (!file.exists()) {
-      throw new IOException(file.getAbsolutePath());
+      throw new IOException("file not exist!");
     }
 
     final FileSystemResource resp = new FileSystemResource(file);
