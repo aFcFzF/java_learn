@@ -4,6 +4,7 @@
  */
 
 package com.demo.app.config.interceptor;
+
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -15,29 +16,40 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 import com.demo.app.config.decorator.ApiResp;
 import com.demo.app.modules.common.util.HttpException;
-import com.fasterxml.jackson.annotation.JsonRawValue;
 
 import io.micrometer.common.lang.NonNull;
 import lombok.Data;
 
 @Data
-class ApiResult {
+class ApiResultBase {
   private int code = 0;
 
   private String message = "";
 
   private Object data = null;
 
-  public ApiResult(int code, String msg) {
+  public ApiResultBase(int code, String msg) {
     this.code = code;
     this.message = msg;
   }
+}
 
-  public ApiResult(Object data) {
+@Data
+class ApiResultObj extends ApiResultBase {
+  private Object data = null;
+
+  public ApiResultObj(Object data) {
+    super(0, "");
     this.data = data;
   }
+}
 
-  public ApiResult(String data) {
+@Data
+class ApiResultStr extends ApiResultBase {
+  private String data = "";
+
+  public ApiResultStr(String data) {
+    super(0, "");
     this.data = data;
   }
 }
@@ -57,17 +69,22 @@ public class ResponseFormattingAdvice implements ResponseBodyAdvice<Object> {
       Class<? extends HttpMessageConverter<?>> selectedConverterType,
       ServerHttpRequest request,
       ServerHttpResponse response) {
-    return new ApiResult(body);
+    if (body instanceof String) {
+      return new ApiResultStr((String) body);
+    }
+    return new ApiResultObj(body);
   }
 
   @ExceptionHandler(Exception.class)
-  public final ApiResult exceptionHandler(Exception ex, WebRequest request) {
+  public final ApiResultBase exceptionHandler(Exception ex, WebRequest request) {
     if (ex instanceof HttpException) {
       HttpException httpEx = (HttpException) ex;
-      return new ApiResult(httpEx.getCode(), httpEx.getMsg());
+      return new ApiResultBase(httpEx.getCode(), httpEx.getMsg());
     }
+
     int code = 500;
     String errMsg = ex.getMessage();
-    return new ApiResult(code, errMsg);
+    return new ApiResultBase(code, errMsg);
   }
 }
+// auto-refresh 自动刷新

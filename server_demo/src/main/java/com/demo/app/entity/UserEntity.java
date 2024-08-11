@@ -7,23 +7,23 @@ package com.demo.app.entity;
 
 import java.time.LocalDateTime;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Data;
-import lombok.ToString;
 
 @Data
-@ToString
-@TableName("user")
+@Table(name = "user")
+@Entity
 public class UserEntity {
   /**
    * 主键
    */
-  @TableId(type = IdType.AUTO)
+  @Id()
   private Integer id;
 
   /**
@@ -39,7 +39,7 @@ public class UserEntity {
   /**
    * 个人签名
    */
-  @TableField(value = "`desc`")
+  @Column(name = "`desc`")
   private String desc;
 
   /**
@@ -50,13 +50,13 @@ public class UserEntity {
   /**
    * 创建时间
    */
-  @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+  @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
   private LocalDateTime createTime;
 
   /**
    * 更新时间
    */
-  @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+  @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
   private LocalDateTime updateTime;
 
   /**
