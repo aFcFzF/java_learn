@@ -43,5 +43,6 @@ server/**/target
 server/**/bucket
 
 .DS_Store
+**/.DS_Store
 TencentKona-17.0.10.b1-jdk_linux-x86_64.tar.gz
 **/secrets.properties
