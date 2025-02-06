@@ -1,6 +1,6 @@
 /**
  * @file JadenCasingStrings.java
- * @author markJia(markjia@tencent.com)
+ * @author 9301462@qq.com
  */
 
 public class JadenCasingStrings {

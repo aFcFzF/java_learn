@@ -39,8 +39,8 @@ out/
 # Ignore Gradle build output directory
 build
 src/target
-server_demo/target
-server_demo/bucket
+server/**/target
+server/**/bucket
 
 .DS_Store
 TencentKona-17.0.10.b1-jdk_linux-x86_64.tar.gz

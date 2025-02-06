@@ -41,7 +41,7 @@ class Test {
 public class UserController {
   private String authUrl = "https://api.weixin.qq.com/sns/jscode2session";
 
-  @Autowired
+  // @Autowired
   private Database db;
 
   @Autowired

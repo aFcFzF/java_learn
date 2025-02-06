@@ -1,6 +1,6 @@
 /*
  * @file tailwind.config.js
- * @author markJia(markjia@tencent.com)
+ * @author 9301462@qq.com
  */
 
 const generatePxScale = (): Record<string, string> => {

@@ -17,7 +17,7 @@ public class EbeanConfiguration {
   @Bean
   public Database database() {
     DatabaseConfig config = new DatabaseConfig();
-    // config.setName("db"); db is the default name
+    config.setName("java_learn"); // db is the default name
     // config.setCurrentUserProvider(currentUser);
     config.loadFromProperties();
     return DatabaseFactory.create(config);
