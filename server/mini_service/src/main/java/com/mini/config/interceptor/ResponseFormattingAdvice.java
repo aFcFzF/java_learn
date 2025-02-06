@@ -19,6 +19,7 @@ import com.mini.modules.common.util.HttpException;
 
 import io.micrometer.common.lang.NonNull;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
 class ApiResultBase {
@@ -35,6 +36,7 @@ class ApiResultBase {
 }
 
 @Data
+@EqualsAndHashCode(callSuper=false)
 class ApiResultObj extends ApiResultBase {
   private Object data = null;
 
@@ -45,6 +47,7 @@ class ApiResultObj extends ApiResultBase {
 }
 
 @Data
+@EqualsAndHashCode(callSuper=false)
 class ApiResultStr extends ApiResultBase {
   private String data = "";
 
