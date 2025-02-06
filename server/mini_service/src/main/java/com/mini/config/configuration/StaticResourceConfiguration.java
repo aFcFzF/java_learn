@@ -3,7 +3,7 @@
  * @author afcfzf(9301462@qq.com)
  */
 
-package com.demo.app.config.configuration;
+package com.mini.config.configuration;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;

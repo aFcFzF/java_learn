@@ -3,7 +3,7 @@
  * @author afcfzf(9301462@qq.com)
  */
 
-package com.demo.app.modules.File;
+package com.mini.modules.File;
 
 import java.io.File;
 import java.io.IOException;

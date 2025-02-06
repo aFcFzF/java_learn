@@ -3,7 +3,7 @@
  * @author afcfzf(9301462@qq.com)
  */
 
-package com.demo.app.config.interceptor;
+package com.mini.config.interceptor;
 
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
-import com.demo.app.config.decorator.ApiResp;
-import com.demo.app.modules.common.util.HttpException;
+import com.mini.config.decorator.ApiResp;
+import com.mini.modules.common.util.HttpException;
 
 import io.micrometer.common.lang.NonNull;
 import lombok.Data;

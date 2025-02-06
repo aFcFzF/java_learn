@@ -3,7 +3,7 @@
  * @author afcfzf(9301462@qq.com)
  */
 
-package com.demo.app.config.configuration;
+package com.mini.config.configuration;
 
 import io.ebean.Database;
 import io.ebean.DatabaseFactory;

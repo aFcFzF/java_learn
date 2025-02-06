@@ -3,12 +3,12 @@
  * @author afcfzf(9301462@qq.com)
  */
 
-package com.wecom.app;
+package com.mini;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import com.demo.app.App;
-import com.demo.app.modules.common.util.FilePathInfo;
-import com.demo.app.modules.common.util.FileUtil;
+import com.mini.App;
+import com.mini.modules.common.util.FilePathInfo;
+import com.mini.modules.common.util.FileUtil;
 
 @SpringBootTest(classes = App.class)
 public class UserTest {

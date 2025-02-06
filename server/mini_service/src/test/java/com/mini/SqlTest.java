@@ -3,11 +3,11 @@
  * @author afcfzf(9301462@qq.com)
  */
 
-package com.wecom.app;
+package com.mini;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import com.demo.app.App;
+import com.mini.App;
 
 @SpringBootTest(classes = App.class)
 public class SqlTest {

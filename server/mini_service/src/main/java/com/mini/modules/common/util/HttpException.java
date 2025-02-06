@@ -3,12 +3,14 @@
  * @author afcfzf(9301462@qq.com)
  */
 
-package com.demo.app.modules.common.util;
+package com.mini.modules.common.util;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
+@EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 public class HttpException extends Exception {
   public int code;

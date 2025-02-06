@@ -1,4 +1,4 @@
-package com.wecom.app;
+package com.mini;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.io.ClassPathResource;
 
-import com.demo.app.App;
-import com.wecom.app.Encryption.JasyptConfig;
+import com.mini.App;
+import com.mini.Encryption.JasyptConfig;
 import org.jasypt.encryption.StringEncryptor;
 import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;
 import org.junit.jupiter.api.Test;

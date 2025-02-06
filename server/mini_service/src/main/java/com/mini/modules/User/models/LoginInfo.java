@@ -3,7 +3,7 @@
  * @author afcfzf(9301462@qq.com)
  */
 
-package com.demo.app.modules.User.models;
+package com.mini.modules.User.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

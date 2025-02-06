@@ -3,7 +3,7 @@
  * @author afcfzf(9301462@qq.com)
  */
 
-package com.demo.app.modules.common.util;
+package com.mini.modules.common.util;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;

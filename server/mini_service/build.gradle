@@ -21,6 +21,19 @@ dependencies {
 
     // This dependency is used by the application.
     implementation libs.guava
+
+    // ebean
+    implementation 'io.ebean:ebean:15.8.1'
+
+    // spring-boot
+    implementation 'org.springframework.boot:spring-boot-starter-web:3.2.4'
+
+    // lombok
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+
+    // sa-token
+    implementation 'cn.dev33:sa-token-spring-boot3-starter:1.38.0'
 }
 
 // Apply a specific Java toolchain to ease working on different environments.

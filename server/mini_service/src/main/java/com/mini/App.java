@@ -3,7 +3,7 @@
  * @author 9301462@qq.com
  */
 
-package com.demo.app;
+package com.mini;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;

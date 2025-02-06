@@ -3,7 +3,7 @@
  * @author afcfzf(9301462@qq.com)
  */
 
-package com.demo.app.config.decorator;
+package com.mini.config.decorator;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

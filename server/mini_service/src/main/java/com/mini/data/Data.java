@@ -3,7 +3,7 @@
  * @author 9301462@qq.com
  */
 
-package com.demo.app.data;
+package com.mini.data;
 
 public class Data {
   private String name;

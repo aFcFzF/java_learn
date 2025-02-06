@@ -3,7 +3,7 @@
  * @author afcfzf(9301462@qq.com)
  */
 
-package com.demo.app.modules.common.service.UploadFile;
+package com.mini.modules.common.service.UploadFile;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,9 +16,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.demo.app.modules.common.util.FilePathInfo;
-import com.demo.app.modules.common.util.FileUtil;
-import com.demo.app.modules.common.util.HttpException;
+import com.mini.modules.common.util.FilePathInfo;
+import com.mini.modules.common.util.FileUtil;
+import com.mini.modules.common.util.HttpException;
 
 @Service
 public class UploadFileSvr {

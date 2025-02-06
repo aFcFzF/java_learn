@@ -3,7 +3,7 @@
  * @author afcfzf(9301462@qq.com)
  */
 
-package com.demo.app.modules.common.service.UploadFile;
+package com.mini.modules.common.service.UploadFile;
 
 public enum UploadFileDir {
  IMAGE,
