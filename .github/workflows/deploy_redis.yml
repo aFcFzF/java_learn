@@ -18,12 +18,12 @@ jobs:
       - name: Set Bash Env
         run: |
           echo "GIT_HASH_SHORT=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
-          echo "DOCKER_CONTAINER_NAME=server-demo-redis" >> $GITHUB_ENV
+          echo "DOCKER_CONTAINER_NAME=server-app-redis" >> $GITHUB_ENV
           # show output
           echo "output is ${{ env.GIT_HASH_SHORT }}"
 
       - name: Build the Docker image
-        run: docker build -t ${{ secrets.SWR_DOCKER_REDIS_PATH }}:"$GIT_HASH_SHORT" .
+        run: docker build --platform linux/x86_64 -t ${{ secrets.SWR_DOCKER_REDIS_PATH }}:"$GIT_HASH_SHORT" .
 
       - name: Docker image push
         run: docker push ${{ secrets.SWR_DOCKER_REDIS_PATH }}:"$GIT_HASH_SHORT"
@@ -43,9 +43,9 @@ jobs:
             docker ps -q --filter "name=${{ env.DOCKER_CONTAINER_NAME }}" | xargs -r docker stop
             docker ps -aq --filter "name=${{ env.DOCKER_CONTAINER_NAME }}" | xargs -r docker rm -f
             docker run -p 6379:6379 -p 8806:3306 --name=${{ env.DOCKER_CONTAINER_NAME }} --restart=always  \
-            -v /root/work/proj/java-learn/docker-config/redis:/data/config/redis \
-            -v /root/work/proj/java-learn/docker-config/mysql/db:/data/config/mysql/db \
-            -v /root/work/proj/java-learn/docker-config/mysql/log:/data/config/mysql/log \
-            -v /root/work/proj/java-learn/docker-config/mysql/cgroup:/sys/fs/cgroup \
-            -v /root/work/proj/java-learn/docker-config/mysql/my.cnf:/etc/my.cnf \
+            -v /root/work/proj/service-app/docker-config/redis:/data/config/redis \
+            -v /root/work/proj/service-app/docker-config/mysql/db:/data/config/mysql/db \
+            -v /root/work/proj/service-app/docker-config/mysql/log:/data/config/mysql/log \
+            -v /root/work/proj/service-app/docker-config/mysql/cgroup:/sys/fs/cgroup \
+            -v /root/work/proj/service-app/docker-config/mysql/my.cnf:/etc/my.cnf \
             -d ${{ secrets.SWR_DOCKER_REDIS_PATH }}:${{ env.GIT_HASH_SHORT }}

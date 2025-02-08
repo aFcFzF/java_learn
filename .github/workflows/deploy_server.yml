@@ -69,10 +69,10 @@ jobs:
           script: |
             docker login -u ${{ secrets.SWR_DOCKERHUB_USERNAME }} -p ${{ secrets.SWR_DOCKERHUB_PASSWORD }} swr.cn-north-4.myhuaweicloud.com
             docker pull ${{ secrets.SWR_DOCKER_SERVER_PATH }}:${{ env.GIT_HASH_SHORT }}
-            docker ps -q --filter "name=server-demo-container" | xargs -r docker stop
-            docker ps -aq --filter "name=server-demo-container" | xargs -r docker rm -f
-            docker run -p 8080:8080 --name=server-demo-container --restart=always \
-            -v /root/work/proj/java-learn/docker-config/buckets:/data/buckets \
+            docker ps -q --filter "name=server-app-container" | xargs -r docker stop
+            docker ps -aq --filter "name=server-app-container" | xargs -r docker rm -f
+            docker run -p 8080:8080 --name=server-app-container --restart=always \
+            -v /root/work/proj/service-app/docker-config/buckets:/data/buckets \
             -d ${{ secrets.SWR_DOCKER_SERVER_PATH }}:${{ env.GIT_HASH_SHORT }}
 
 

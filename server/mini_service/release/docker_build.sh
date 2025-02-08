@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-DOCKER_NAME=swr.cn-north-4.myhuaweicloud.com/mark-dev/server-demo;
+DOCKER_NAME=swr.cn-north-4.myhuaweicloud.com/mark-app/server-demo;
 DOCKER_VERSION="$(git rev-parse --short HEAD)";
 DOCKER_NAME_WITH_VER=$DOCKER_NAME:$DOCKER_VERSION;
 DOCKER_NAME_WITH_LATEST=$DOCKER_NAME:latest;

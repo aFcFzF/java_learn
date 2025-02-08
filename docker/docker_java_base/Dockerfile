@@ -10,5 +10,5 @@ COPY ./assets/* ./
 
 RUN sh ./init.sh
 
-ENV JAVA_HOME /data/software/TencentKona-17.0.10.b1
+ENV JAVA_HOME /data/software/TencentKona-17.0.13.b1
 ENV PATH ${JAVA_HOME}/bin:$PATH
