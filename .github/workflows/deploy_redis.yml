@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./docker_redis
+        working-directory: ./docker/docker_redis
     steps:
       - uses: actions/checkout@v4
       - name: Docker login
@@ -19,14 +19,15 @@ jobs:
         run: |
           echo "GIT_HASH_SHORT=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
           echo "DOCKER_CONTAINER_NAME=server-app-redis" >> $GITHUB_ENV
+          echo "DOCKER_REDIS_NAME=swr.cn-north-4.myhuaweicloud.com/mark-app/server-app-redis"  >> $GITHUB_ENV
           # show output
           echo "output is ${{ env.GIT_HASH_SHORT }}"
 
       - name: Build the Docker image
-        run: docker build --platform linux/x86_64 -t ${{ secrets.SWR_DOCKER_REDIS_PATH }}:"$GIT_HASH_SHORT" .
+        run: docker build --platform linux/x86_64 -t ${{ env.DOCKER_REDIS_NAME }}:"$GIT_HASH_SHORT" .
 
       - name: Docker image push
-        run: docker push ${{ secrets.SWR_DOCKER_REDIS_PATH }}:"$GIT_HASH_SHORT"
+        run: docker push ${{ env.DOCKER_REDIS_NAME }}:"$GIT_HASH_SHORT"
 
       #Job starts here
       - name: executing remote ssh commands
@@ -39,7 +40,7 @@ jobs:
           #Bash commands may be placed line by line here
           script: |
             docker login -u ${{ secrets.SWR_DOCKERHUB_USERNAME }} -p ${{ secrets.SWR_DOCKERHUB_PASSWORD }} swr.cn-north-4.myhuaweicloud.com
-            docker pull ${{ secrets.SWR_DOCKER_REDIS_PATH }}:${{ env.GIT_HASH_SHORT }}
+            docker pull ${{ env.DOCKER_REDIS_NAME }}:${{ env.GIT_HASH_SHORT }}
             docker ps -q --filter "name=${{ env.DOCKER_CONTAINER_NAME }}" | xargs -r docker stop
             docker ps -aq --filter "name=${{ env.DOCKER_CONTAINER_NAME }}" | xargs -r docker rm -f
             docker run -p 6379:6379 -p 8806:3306 --name=${{ env.DOCKER_CONTAINER_NAME }} --restart=always  \
@@ -48,4 +49,4 @@ jobs:
             -v /root/work/proj/service-app/docker-config/mysql/log:/data/config/mysql/log \
             -v /root/work/proj/service-app/docker-config/mysql/cgroup:/sys/fs/cgroup \
             -v /root/work/proj/service-app/docker-config/mysql/my.cnf:/etc/my.cnf \
-            -d ${{ secrets.SWR_DOCKER_REDIS_PATH }}:${{ env.GIT_HASH_SHORT }}
+            -d ${{ env.DOCKER_REDIS_NAME }}:${{ env.GIT_HASH_SHORT }}
