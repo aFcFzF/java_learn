@@ -16,5 +16,7 @@ WORKDIR /data/software/
 COPY ./assets/* ./
 
 RUN ["chmod", "777", "-R",  "/data/software/"]
+RUN ["chmod", "766", "-R",  "/var/log/mariadb/"]
+RUN ["chmod", "766", "-R",  "/sys/fs/cgroup"]
 
 CMD ["sh", "-c", "./init.sh -d"]
