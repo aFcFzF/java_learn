@@ -46,6 +46,7 @@ jobs:
             docker run -p 6379:6379 -p 8806:3306 --name=${{ env.DOCKER_CONTAINER_NAME }} --restart=always  \
             -v /root/work/proj/service-app/docker-config/redis:/data/config/redis \
             -v /root/work/proj/service-app/docker-config/mysql/data:/var/lib/mysql \
+            -v /root/work/proj/service-app/docker-config/mysql/cgroup:/sys/fs/cgroup \
             -v /root/work/proj/service-app/docker-config/mysql/log:/var/log/mariadb \
             -v /root/work/proj/service-app/docker-config/mysql/my.cnf:/etc/my.cnf \
             -d ${{ env.DOCKER_REDIS_NAME }}:${{ env.GIT_HASH_SHORT }}
