@@ -17,3 +17,4 @@ FLUSH PRIVILEGES;
 
 ## 设置storage存储
 1. mariadb 先以默认配置启动，再复制my.cnf文件到-v
+2. skip-networking 无法用-P访问，gpt没回答出来
