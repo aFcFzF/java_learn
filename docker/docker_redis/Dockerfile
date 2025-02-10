@@ -19,4 +19,4 @@ RUN ["chmod", "777", "-R",  "/data/software/"]
 
 CMD ["sh", "-c", "./init.sh -d"]
 
-ENTRYPOINT [ "3306" ]
+EXPOSE 3306
