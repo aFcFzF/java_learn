@@ -14,3 +14,6 @@ GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'password';
 # skip-name-resolve
 FLUSH PRIVILEGES;
 ```
+
+## 设置storage存储
+1. mariadb 先以默认配置启动，再复制my.cnf文件到-v
