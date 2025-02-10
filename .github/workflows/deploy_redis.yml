@@ -48,5 +48,5 @@ jobs:
             -v /root/work/proj/service-app/docker-config/mysql/data:/var/lib/mysql \
             -v /root/work/proj/service-app/docker-config/mysql/cgroup:/sys/fs/cgroup \
             -v /root/work/proj/service-app/docker-config/mysql/log:/var/log/mariadb \
-            #-v /root/work/proj/service-app/docker-config/mysql/my.cnf:/etc/my.cnf \
+            -v /root/work/proj/service-app/docker-config/mysql/my.cnf:/etc/my.cnf \
             -d ${{ env.DOCKER_REDIS_NAME }}:${{ env.GIT_HASH_SHORT }}
