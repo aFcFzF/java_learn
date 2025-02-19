@@ -7,7 +7,7 @@ package com.mini.modules.User;
 
 import java.io.IOException;
 import java.util.List;
-import okhttp3.OkHttpClient;
+// import okhttp3.OkHttpClient;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -41,7 +41,7 @@ class Test {
 public class UserController {
   private String authUrl = "https://api.weixin.qq.com/sns/jscode2session";
 
-  // @Autowired
+  @Autowired
   private Database db;
 
   @Autowired
@@ -70,7 +70,7 @@ public class UserController {
 
     UserEntity userInfo = userQuery
         .where()
-        .eq("autoToken", authToken)
+        .eq("nickname", "markjia")
         .findOne();
 
     if (userInfo == null) {
@@ -84,7 +84,7 @@ public class UserController {
   @ApiResp
   public String login(@RequestBody(required = false) String wxCode) {
     System.out.println("===== wxCode: " + wxCode);
-    OkHttpClient okHttpClient = new OkHttpClient();
+    // OkHttpClient okHttpClient = new OkHttpClient();
     JSONObject json = new JSONObject();
     json.put("a", "b");
 

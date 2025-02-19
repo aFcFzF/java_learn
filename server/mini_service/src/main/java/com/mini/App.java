@@ -11,8 +11,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ulisesbocchio.jasyptspringboot.annotation.EnableEncryptableProperties;
+
 @RestController
 @SpringBootApplication
+@EnableEncryptableProperties
 public class App {
 
   @Value("${spring.application.name}")
@@ -21,8 +24,8 @@ public class App {
   @Value("${jasypt.encryptor.password}")
   private String encryptKey;
 
-  @Value("${spring.datasource.url}")
-  private String dbUrl;
+  // @Value("${datasource.db.url}")
+  // private String dbUrl;
 
   @RequestMapping("/")
   String home() {

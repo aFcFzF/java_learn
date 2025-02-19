@@ -8,18 +8,37 @@ package com.mini.config.configuration;
 import io.ebean.Database;
 import io.ebean.DatabaseFactory;
 import io.ebean.config.DatabaseConfig;
+import io.ebean.datasource.DataSourceConfig;
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class EbeanConfiguration {
 
+  @Value("${datasource.db.url}")
+  private String dbUrl;
+
+  @Value("${datasource.db.username}")
+  private String dbUserName;
+
+  @Value("${datasource.db.password}")
+  private String dbPwd;
+
   @Bean
   public Database database() {
+    System.out.println("\n=======" + dbUrl);
+
+    DataSourceConfig dbConfig = new DataSourceConfig();
+    dbConfig.setUsername(dbUserName);
+    dbConfig.setPassword(dbPwd);
+    dbConfig.setUrl(dbUrl);
+
     DatabaseConfig config = new DatabaseConfig();
-    config.setName("java_learn"); // db is the default name
-    // config.setCurrentUserProvider(currentUser);
-    config.loadFromProperties();
+    config.setDataSourceConfig(dbConfig);
+
+    System.out.println(config);
     return DatabaseFactory.create(config);
   }
 }

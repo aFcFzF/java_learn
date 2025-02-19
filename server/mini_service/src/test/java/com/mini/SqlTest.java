@@ -5,9 +5,14 @@
 
 package com.mini;
 
+import static org.junit.Assert.assertEquals;
+
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import com.mini.App;
+import com.mini.entity.UserEntity;
 
 @SpringBootTest(classes = App.class)
 public class SqlTest {

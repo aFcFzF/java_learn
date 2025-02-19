@@ -8,7 +8,14 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
+    // 还要ide添加插件
+    id 'io.ebean' version '15.9.0'
 }
+
+// ebean {
+//     // 指定需要增强的实体类包
+//     entity("com.mini.entity") // 替换为你的实体类包
+// }
 
 repositories {
     // Use Maven Central for resolving dependencies.
@@ -22,12 +29,18 @@ dependencies {
     // This dependency is used by the application.
     implementation libs.guava
 
+    implementation 'mysql:mysql-connector-java:8.0.33'
+
     // ebean
-    implementation 'io.ebean:ebean:15.8.1'
+    implementation 'io.ebean:ebean:15.9.0'
+    implementation 'io.ebean:querybean-generator:15.9.0'
+    // implementation 'io.ebean.tile:enhancement:13.25.2'
+    implementation 'com.h2database:h2:2.3.230'
 
     // spring-boot
     implementation 'org.springframework.boot:spring-boot-starter-web:3.2.4'
     implementation 'org.springframework.boot:spring-boot-starter-test:3.2.4'
+    // implementation 'org.springframework.boot:spring-boot-devtools'
 
     // jasypt
     implementation 'com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.5'

@@ -60,5 +60,6 @@ public class UserEntity {
   /**
    * 是否被删除
    */
+  @Column(name = "is_del")
   private Integer isDel;
 }

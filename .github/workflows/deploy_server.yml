@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./server_demo
+        working-directory: ./server/mini_service
     # strategy:
     #   matrix:
     #     node-version: [16.13.x]
