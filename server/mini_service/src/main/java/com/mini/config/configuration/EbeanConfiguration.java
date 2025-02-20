@@ -28,8 +28,6 @@ public class EbeanConfiguration {
 
   @Bean
   public Database database() {
-    System.out.println("\n=======" + dbUrl);
-
     DataSourceConfig dbConfig = new DataSourceConfig();
     dbConfig.setUsername(dbUserName);
     dbConfig.setPassword(dbPwd);
@@ -38,7 +36,6 @@ public class EbeanConfiguration {
     DatabaseConfig config = new DatabaseConfig();
     config.setDataSourceConfig(dbConfig);
 
-    System.out.println(config);
     return DatabaseFactory.create(config);
   }
 }

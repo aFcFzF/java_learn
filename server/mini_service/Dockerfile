@@ -4,10 +4,10 @@ label version="1.0"
 label description="docker for java server"
 expose 8080
 
-run mkdir -p /work/proj/demo
-workdir /work/proj/demo
+run mkdir -p /work/proj/mini
+workdir /work/proj/mini
 
-copy ./target/demo-1.0.jar ./
+copy ./build/libs/mini_service.jar ./
 copy ./release/start.sh ./
 
 RUN ["chmod", "777", "./start.sh"]

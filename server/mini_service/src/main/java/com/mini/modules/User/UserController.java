@@ -29,7 +29,6 @@ import com.mini.modules.common.util.HttpException;
 import io.ebean.Database;
 import io.ebean.Query;
 import lombok.Data;
-import net.minidev.json.JSONObject;
 
 @Data
 class Test {
@@ -85,8 +84,8 @@ public class UserController {
   public String login(@RequestBody(required = false) String wxCode) {
     System.out.println("===== wxCode: " + wxCode);
     // OkHttpClient okHttpClient = new OkHttpClient();
-    JSONObject json = new JSONObject();
-    json.put("a", "b");
+    // JSONObject json = new JSONObject();
+    // json.put("a", "b");
 
     Test ins = new Test();
     System.out.println(ins.getName());
